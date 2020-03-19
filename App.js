@@ -1,19 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Home from './components/Home';
+import StatusBarBackground from './components/StatusBarBackground';
+import Forecast from './components/Forecast';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+   return (
+      <View style={styles.container}>
+         <StatusBarBackground/>
+         {/* <Home/> */}
+         <Forecast></Forecast>
+      </View>
+   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+   container: {
+      // flex: 1,
+      // justifyContent: 'center',
+      // alignItems: 'center',
+      backgroundColor: "#f2b54a",
+      height: "100%",
+      // padding: 16,
+   }
 });
+
