@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, Button } from 'react-native';
 
-function Home(props) {
+function Home({ navigation }) {
 
    let date = new Date();
    const week = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
@@ -31,6 +31,10 @@ function Home(props) {
                <Text style={styles.min}>5° &darr;</Text>
                <Text style={styles.max}>20° &uarr;</Text>
             </View>
+            <Button
+               title="Prévisions de la semaine"
+               onPress={() => navigation.navigate('Forecast')}
+            />
          </View>
       </View>
    );
@@ -40,9 +44,10 @@ function Home(props) {
 const styles = StyleSheet.create({
    container: {
       height: "100%",
-      margin: 16,
+      padding: 28,
       // flex: 1,
       // justifyContent: "space-between",
+      backgroundColor: '#f2b54a'
    },
    topBar: {
       flex: 0,
@@ -103,7 +108,8 @@ const styles = StyleSheet.create({
       marginTop: 16,
       flex: 1,
       flexDirection: "row",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
+      marginBottom: 32
    },
    min: {
       color: "#779ecb",

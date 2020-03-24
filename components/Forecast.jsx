@@ -21,7 +21,8 @@ function Forecast(props) {
 const styles = StyleSheet.create({
    container: {
       height: "100%",
-      margin: 16,
+      padding: 16,
+      backgroundColor: '#f2b54a',
    }
 });
 
