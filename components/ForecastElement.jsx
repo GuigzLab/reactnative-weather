@@ -3,17 +3,27 @@ import { StyleSheet, View, Text, Image } from 'react-native';
 
 function ForecastElement(props) {
 
+     let date = new Date(props.dt * 1000);
+     const week = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+     const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+     let fullDate = `${week[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]}`;
+
+     // console.log(props.dt)
+
+
      return (
           <View style={[styles.container, props.style || {}]}>
                <View style={styles.time}>
-                    <Text style={styles.day}>{props.day}</Text>
-                    <Text style={styles.date}>{props.date}</Text>
+                    <Text style={styles.day}>{week[date.getDay()]}</Text>
+                    <Text style={styles.date}>{`${date.getDate()} ${months[date.getMonth()]}`}</Text>
                </View>
                <Image
                     style={styles.image}
-                    source={require('../assets/sun.png')}
+                    source={{
+                         uri: `http://openweathermap.org/img/wn/${props.img}@2x.png`,
+                    }}
                />
-               <Text style={styles.temperature}>15°</Text>
+               <Text style={styles.temperature}>{Math.round(props.temp)}°</Text>
           </View>
      );
 

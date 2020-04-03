@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
 import Home from './components/Home';
 import StatusBarBackground from './components/StatusBarBackground';
 import Forecast from './components/Forecast';
@@ -28,15 +28,17 @@ export default function App() {
          <StatusBar barStyle="dark-content" />
          <StatusBarBackground style={{backgroundColor: '#f2b54a'}} />
          <Stack.Navigator>
+            {/* Syntaxe pour pouvoir fournir des props à Home */}
             <Stack.Screen
                name="Home"
-               component={Home}
                options={{
                   title: '',
                   headerStyle: navHeaderStyle,
                   headerTitleStyle: navTitleStyle
                }}
-            />
+            >
+               {props => <Home testProp="test" />}
+            </Stack.Screen>
             <Stack.Screen
                name="Forecast"
                component={Forecast}
@@ -53,12 +55,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
    container: {
-      // flex: 1,
-      // justifyContent: 'center',
-      // alignItems: 'center',
       backgroundColor: "#f2b54a",
       height: "100%",
-      // padding: 16,
    }
 });
 
